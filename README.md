@@ -5,6 +5,9 @@
     <p align="center">
         A small website to practice/learn your fencing parries.
     </p>
+    <a href="https://app.netlify.com/sites/kyptk/deploys" target="_blank">
+        <img src="https://api.netlify.com/api/v1/badges/03e39337-4126-4107-9726-da66060d0e8c/deploy-status" alt="Netlify Status">
+    </a>
 </div>
 
 ## Description
