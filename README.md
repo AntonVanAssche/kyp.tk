@@ -1,4 +1,5 @@
 <div align="center">
+    <img src="./assets/images/logo.png" alt="KYP Logo (definitely not based on a DALL·E 2 generated image!)" width="200px" height="200px">
     <h1>
         Know Your Parries
     </h1>
