@@ -47,7 +47,6 @@ const parryToHTML = (parry) => {
         "parry-image"
     ).src = `./assets/images/parries/${parry.value}-${parry.name}.png`;
     document.getElementById("parry-image").alt = `${parry.value} ${parry.name}`;
-
     document.getElementById("parry-image").classList.add("parry-image");
 };
 
@@ -147,6 +146,24 @@ if (document.getElementById("parry-practice")) {
 }
 
 // Fade in animation when the page is loaded.
-window.onload = () => {
-    $(".preloader").delay(200).fadeOut("slow");
+// Relaces the need for Jquery: $(".preloader").delay(200).fadeOut("slow");
+const fadeOut = () => {
+    const preloader = document.querySelector(".preloader");
+    let opacity = 1;
+    const start = Date.now();
+    const animationDuration = 500;
+    const fadeOut = () => {
+        const elapsed = Date.now() - start;
+        if (elapsed < animationDuration) {
+            opacity = 1 - elapsed / animationDuration;
+            preloader.style.opacity = opacity;
+            requestAnimationFrame(fadeOut);
+        } else {
+            preloader.style.opacity = 0;
+            preloader.style.display = "none";
+        }
+    };
+    requestAnimationFrame(fadeOut);
 };
+
+window.onload = fadeOut;
