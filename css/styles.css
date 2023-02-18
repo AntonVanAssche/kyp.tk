@@ -45,6 +45,8 @@
 
 html {
     scroll-behavior: smooth;
+
+    overflow-x: hidden;
 }
 
 body {
@@ -66,11 +68,11 @@ section {
     display: grid;
     grid-template-columns: 1fr 1fr;
     min-height: 100vh;
-    max-height: 200vh;
+    max-height: auto;
 }
 
 section img {
-    height: 100vh;
+    height: max(100vh, 100%);
     object-fit: cover;
 }
 
@@ -194,6 +196,7 @@ strong {
 #parry-practice img {
     border-radius: 1.125rem 0 0 1.125rem;
     object-fit: cover;
+    height: 100vh;
 }
 
 #why img {
@@ -217,7 +220,8 @@ strong {
 }
 
 #parries img {
-    max-height: 50vh;
+    width: 75%;
+    height: auto;
 }
 
 #parry-practice .parry-image {
@@ -235,6 +239,23 @@ strong {
     color: var(--text-color1);
 }
 
+@media (min-width: 900px) {
+    .slide-in {
+        opacity: 0;
+        transform: translateX(-100%);
+        transition: all 1s ease-in-out;
+    }
+
+    .slide-in.right {
+        transform: translateX(100%);
+    }
+
+    .slide-in.active {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 footer {
     display: flex;
     justify-content: center;
@@ -243,9 +264,10 @@ footer {
     background-color: var(--background-color1);
 }
 
-@media (max-width: 1270px) {
+@media (max-width: 900px) {
     section {
         grid-template-columns: 1fr;
+        margin: 1rem 0;
     }
 
     button {
